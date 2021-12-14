@@ -1,0 +1,7 @@
+Algorithme pour un ensemble de courses : même tracé
+- Choisir une course de référence
+- Calculer le kilométrage total
+- déterminer un mapping des altitudes
+- prendre les autres courses
+- moduler leurs distances pour qu'il y aie correspondance avec la course de référence
+- Calculs complémentaires (vitesse etc)
