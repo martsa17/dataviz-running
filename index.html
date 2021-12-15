@@ -1,1 +1,46 @@
-<h1>Page</h1>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <style>
+      .horizontalGrid {
+        stroke: lightgrey;
+        stroke-opacity: 0.5;
+        shape-rendering: crispEdges;
+      }
+      .line {
+        fill: none;
+        stroke: #383838;
+        stroke-width: 2px;
+      }
+      .line10 {
+        fill: none;
+        stroke: #ffcc00;
+        stroke-width: 1px;
+        opacity: 0.5;
+      }
+      .line12 {
+        fill: none;
+        stroke: #ff0000;
+        stroke-width: 1px;
+        opacity: 0.5;
+      }
+      .line15 {
+        fill: none;
+        stroke: #800040;
+        stroke-width: 1px;
+        opacity: 0.5;
+      }
+      .overlay {
+        fill: none;
+        pointer-events: all;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="chart"></div>
+    <script src="app.js" defer></script>
+    <div id="indic"></div>
+  </body>
+</html>
