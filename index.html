@@ -11,25 +11,7 @@
       .line {
         fill: none;
         stroke: #383838;
-        stroke-width: 2px;
-      }
-      .line10 {
-        fill: none;
-        stroke: #ffcc00;
         stroke-width: 1px;
-        opacity: 0.5;
-      }
-      .line12 {
-        fill: none;
-        stroke: #ff0000;
-        stroke-width: 1px;
-        opacity: 0.5;
-      }
-      .line15 {
-        fill: none;
-        stroke: #800040;
-        stroke-width: 1px;
-        opacity: 0.5;
       }
       .overlay {
         fill: none;
@@ -38,6 +20,17 @@
     </style>
   </head>
 
+  <form id="moymob">
+    <span> Moyenne mobile avec n = </span>
+    <input
+      id="slider"
+      type="number"
+      value="2"
+      min="2"
+      max="100"
+      style="width: 40px;"
+    />
+  </form>
   <body>
     <div id="chart"></div>
     <script src="app.js" defer></script>

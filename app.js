@@ -22,94 +22,33 @@ svg
   .style("font-family", "Raleway")
   .style("font-weight", "300")
   .style("font-size", "24px")
-  .text("Evolution du temps au cours du trajet");
+  .text("Evolution de la vitesse au cours du trajet");
 
-function addTooltip() {
-  // Création d'un groupe qui contiendra tout le tooltip plus le cercle de suivi
-  var tooltip = svg.append("g").attr("id", "tooltip").style("display", "none");
-
-  // Le cercle extérieur bleu clair
-  tooltip.append("circle").attr("fill", "#CCE5F6").attr("r", 10);
-
-  // Le cercle intérieur bleu foncé
-  tooltip
-    .append("circle")
-    .attr("fill", "#3498db")
-    .attr("stroke", "#fff")
-    .attr("stroke-width", "1.5px")
-    .attr("r", 4);
-
-  // Le tooltip en lui-même avec sa pointe vers le bas
-  // Il faut le dimensionner en fonction du contenu
-  tooltip
-    .append("polyline")
-    .attr("points", "0,0 0,40 55,40 60,45 65,40 140,40 140,0 0,0")
-    .style("fill", "#fafafa")
-    .style("stroke", "#3498db")
-    .style("opacity", "0.9")
-    .style("stroke-width", "1")
-    .attr("transform", "translate(-60, -55)");
-
-  // Cet élément contiendra tout notre texte
-  var text = tooltip
-    .append("text")
-    .style("font-size", "13px")
-    .style("font-family", "Segoe UI")
-    .style("color", "#333333")
-    .style("fill", "#333333")
-    .attr("transform", "translate(-50, -40)");
-
-  // Element pour la date avec positionnement spécifique
-  text.append("tspan").attr("dx", "-5").attr("id", "tooltip-date");
-
-  // Positionnement spécifique pour le petit rond bleu
-  text
-    .append("tspan")
-    .style("fill", "#3498db")
-    .attr("dx", "-60")
-    .attr("dy", "15")
-    .text("●");
-
-  // Le texte "Pente : "
-  text.append("tspan").attr("dx", "5").text("Vitesse : ");
-
-  // Le texte pour la valeur de la vitesse
-  text.append("tspan").attr("id", "tooltip-vit").style("font-weight", "bold");
-
-  return tooltip;
-}
-
-d3.csv("running_modif2.csv").then(function (data) {
+d3.csv("runningmoy.csv").then(function (data) {
   data.forEach(function (d) {
     d.date = +d.date / 3600;
     d.alt = parseFloat(d.alt.replace(",", "."));
     d.dist = parseFloat(d.dist.replace(",", "."));
     d.vit = parseFloat(d.vit.replace(",", "."));
+    d.pente = parseFloat(d.pente.replace(",", "."));
   });
+
   const vit_moy = d3.mean(data, (d) => d.vit);
-  //console.log(vit_moy);
-  const y = d3
-    .scaleLinear()
-    .range([height, 0])
-    .domain(d3.extent(data, (d) => d.date));
+
+  const y = d3.scaleLinear().range([height, 0]).domain([0, 30]);
 
   const x = d3
     .scaleLinear()
     .range([0, width])
     .domain([0, d3.max(data, (d) => d.dist)]);
 
-  const z = d3
-    .scaleLinear()
-    .range([height, 0])
-    .domain([d3.min(data, (d) => d.vit) - 20, d3.max(data, (d) => d.vit) + 20]);
-
-  const q = d3.scaleLinear().range([height, 0]).domain([0, 500]);
+  const z = d3.scaleLinear().range([height, 0]).domain([0, 700]);
 
   const area = d3
     .area()
     .x((d) => x(d.dist))
     .y0(height)
-    .y1((d) => q(d.alt));
+    .y1((d) => z(d.alt));
 
   var areaPath = svg
     .append("path")
@@ -117,49 +56,41 @@ d3.csv("running_modif2.csv").then(function (data) {
     .style("fill", "#c6ecc6")
     .attr("d", area);
 
-  const line = d3
-    .line()
-    .x((d) => x(d.dist))
-    .y((d) => y(d.date));
+  function movingAverage(array, count) {
+    var result = [],
+      val;
 
-  const line10 = d3
-    .line()
-    .x((d) => x(d.dist))
-    .y((d) => y(d.dist / 10));
+    for (
+      var i = Math.floor(count / 2), len = array.length - count / 2;
+      i < len;
+      i++
+    ) {
+      val = d3.mean(array.slice(i - count / 2, i + count / 2), (d) => d.vit);
+      result.push({ dist: array[i].dist, vit: val });
+    }
 
-  const line12 = d3
-    .line()
-    .x((d) => x(d.dist))
-    .y((d) => y(d.dist / 12));
+    return result;
+  }
 
-  const line15 = d3
-    .line()
-    .x((d) => x(d.dist))
-    .y((d) => y(d.dist / 14));
+  function addMovingAverage(data, x, y, N) {
+    const line = d3
+      .line()
+      .x((d) => x(d.dist))
+      .y((d) => y(d.vit))
+      .curve(d3.curveMonotoneX); // Fonction de courbe permettant de l'adoucir
 
-  var linePath = svg
-    .append("path")
-    .datum(data)
-    .attr("class", "line")
-    .attr("d", line);
+    let moveaverage = movingAverage(data, N); // Moyenne mobile sur 10 jours
 
-  var linePath10 = svg
-    .append("path")
-    .datum(data)
-    .attr("class", "line10")
-    .attr("d", line10);
-
-  var linePath12 = svg
-    .append("path")
-    .datum(data)
-    .attr("class", "line12")
-    .attr("d", line12);
-
-  var linePath15 = svg
-    .append("path")
-    .datum(data)
-    .attr("class", "line15")
-    .attr("d", line15);
+    svg
+      .append("path")
+      .attr("id", "graph")
+      .datum(moveaverage)
+      .attr("d", line)
+      .style("fill", "none")
+      .style("stroke", "#ffab00")
+      .style("stroke-width", 2);
+  }
+  addMovingAverage(data, x, y, 2);
 
   // axe x
   svg
@@ -175,6 +106,7 @@ d3.csv("running_modif2.csv").then(function (data) {
   // axe y
   svg
     .append("g")
+    .style("fill", "#ffab00")
     .call(d3.axisLeft(y))
     .append("text")
     .attr("fill", "#000")
@@ -182,14 +114,14 @@ d3.csv("running_modif2.csv").then(function (data) {
     .attr("y", 6)
     .attr("dy", "0.71em")
     .style("text-anchor", "end")
-    .text("Temps (en h)");
+    .text("Vitesse (en km/h)");
 
   // axe q
   svg
     .append("g")
     .attr("transform", "translate(" + width + ", 0)")
     .style("fill", "#c6ecc6")
-    .call(d3.axisRight(q))
+    .call(d3.axisRight(z))
     .append("text")
     .attr("transform", "rotate(-90)")
     .attr("fill", "#000")
@@ -208,30 +140,12 @@ d3.csv("running_modif2.csv").then(function (data) {
     .attr("y1", (d) => y(d))
     .attr("y2", (d) => y(d));
 
-  var tooltip = addTooltip();
-
-  var bisectDist = d3.bisector((d) => d.dist).left;
-
-  svg
-    .append("rect")
-    .attr("class", "overlay")
-    .attr("width", width)
-    .attr("height", height)
-    .on("mouseover", function (event) {
-      tooltip.style("display", null);
-    })
-    .on("mouseout", function (event) {
-      tooltip.style("display", "none");
-    })
-    .on("mousemove", mousemove);
-
-  function mousemove(event) {
-    var x0 = x.invert(d3.pointer(event)[0]),
-      i = bisectDist(data, x0),
-      d = data[i];
-    tooltip.attr("transform", "translate(" + x(d.dist) + "," + y(d.date) + ")");
-
-    d3.select("#tooltip-date").text(d.date.toFixed(2) + "h");
-    d3.select("#tooltip-vit").text(d.vit.toFixed(1) + "km/h");
+  function updateViz(w) {
+    d3.select("#graph").remove();
+    addMovingAverage(data, x, y, w);
   }
+
+  d3.select("#slider").on("input", function () {
+    updateViz(+this.value);
+  });
 });
