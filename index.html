@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Site test</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="row top-buffer" id="first">
+        <div class="col" id="logo">
+          <div class="inner" id="logo_cont">
+            <img src="resources/univ-logo.png" alt="univ-logo" id="logo_img" />
+          </div>
+        </div>
+        <div class="col-6" id="title">
+          <div class="inner">
+            <h1>Visualisation de données de course à pied</h1>
+          </div>
+        </div>
+        <div class="col" id="names">
+          <div class="inner names">
+            <p id="namebox">
+              Bernoud Axel<br />
+              Bouaddi Flora<br />
+              Depraz Olivier<br />
+              Martineau Samuel<br />
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="row top-buffer" id="pres">
+        <div class="col" id="pres_text">
+          <p class="explain">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent
+            accumsan nunc nulla, non faucibus nisl porttitor eu. Maecenas sed
+            nibh in mi vestibulum aliquam. Fusce vulputate, urna et lobortis
+            semper, lectus nisl commodo nisl, et pretium mi urna vitae nunc.
+            Suspendisse potenti. Quisque vulputate urna sed dignissim laoreet.
+            Sed consectetur pulvinar leo eget ultrices. Vivamus vel tempor
+            mauris, pretium tempor erat. Aenean quis sapien risus. Nulla
+          </p>
+          <p class="explain">
+            ullamcorper tincidunt velit, a venenatis risus dapibus a. Quisque
+            consequat a libero at semper. Praesent ipsum sem, venenatis sagittis
+            varius vel, blandit ac massa. Aliquam tincidunt, lorem id luctus
+            condimentum, ligula elit iaculis nibh, id placerat ipsum libero non
+            libero. Curabitur in urna sit amet sem dictum interdum. Curabitur
+            sed velit at ligula dapibus aliquam nec cursus velit. Aenean
+            imperdiet fermentum aliquet. Sed scelerisque nulla quis feugiat
+            efficitur.
+          </p>
+        </div>
+      </div>
+      <div class="row top-buffer" id="overview">
+        <div class="col-6 viz" id="circle">Cercles</div>
+        <div class="col-6 viz" id="stats-circle">
+          <div class="row" id="st-cr-title">
+            <h2>LIEU CHOISI<h2>
+          </div>
+          <div class="row" id="st-cr-infos">
+            <div class="col-6 keys" id="st_cr_names">Longueur du tracé :<br>Nb courses :<br>Période :<br>Vitesse moyenne :<br></div>
+            <div class="col-6 values" id="st_cr_stats">??m<br>??<br>?? - ??<br>?? km/h<br></div>
+          </div>
+        </div>
+      </div>
+      <div class="row top-buffer" id="course">
+        <div class="col-3 viz" id="stats-course">
+            <div class="row" id="st-cr-title">
+                <h2>Course #??<h2>
+              </div>
+              <div class="row" id="st-cr-infos">
+                <div class="col-7 keys" id="st_gr_names">Date :<br>Tps :<br>VM :<br>Rang :<br></div>
+                <div class="col-5 values" id="st_gr_stats">?-?-?<br>?:?:?<br>?? km/h<br>?<br></div>
+              </div>
+        </div>
+        <div class="col-9" id="course-wrap">
+          <div class="row viz" id="course-graph">
+            <div class="col" id="graph">Course</div>
+          </div>
+          <div class="row viz" id="course-tick">
+            <div class="col" id="tick">Choix course</div>
+          </div>
+          <div class="row viz" id="course-radios">
+            <div class="col-3" id="radio-text">
+                Lissage : 
+            </div>
+            <div class="col-9" id="radio-zone">
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                <label class="form-check-label" for="inlineRadio1">faible</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                <label class="form-check-label" for="inlineRadio2">moyen</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3">
+                <label class="form-check-label" for="inlineRadio3">élevé</label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="src/index.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
