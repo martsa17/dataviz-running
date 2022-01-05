@@ -88,7 +88,13 @@ d3.csv("runningmoy.csv").then(function (data) {
       .attr("d", line)
       .style("fill", "none")
       .style("stroke", "#ffab00")
-      .style("stroke-width", 2);
+      .style("stroke-width", 2)
+      .on("mouseover", function (d, i) {
+        d3.select(this).transition().duration("50").attr("opacity", ".60");
+      })
+      .on("mouseout", function (d, i) {
+        d3.select(this).transition().duration("50").attr("opacity", "1");
+      });
   }
   addMovingAverage(data, x, y, 2);
 
