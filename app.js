@@ -146,18 +146,15 @@ d3.csv("runningmoy.csv").then(function (data) {
   }
 
   d3.select("#inlineRadio1").on("click", function () {
-    var w = d3.select('input[id="inlineRadio1"]:checked').property("value");
-    updateViz(w);
+    updateViz(2);
   });
   
   d3.select("#inlineRadio2").on("click", function () {
-    var w = d3.select('input[id="inlineRadio1"]:checked').property("value");
-    updateViz(w);
+    updateViz(20);
   });
   
   d3.select("#inlineRadio3").on("click", function () {
-    var w = d3.select('input[id="inlineRadio1"]:checked').property("value");
-    updateViz(w);
+    updateViz(60);
   });
   
 });
