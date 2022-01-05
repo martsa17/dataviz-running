@@ -5,7 +5,7 @@ const margin = { top: 50, right: 30, bottom: 30, left: 60 },
 
 // Création du SVG
 const svg = d3
-  .select("#chart")
+  .select("#graph")
   .append("svg")
   .attr("id", "svg")
   .attr("width", width + margin.left + margin.right + 50)
