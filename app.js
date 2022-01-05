@@ -146,7 +146,7 @@ d3.csv("runningmoy.csv").then(function (data) {
   }
 
   d3.select("#inlineRadio1").on("click", function () {
-    updateViz(15);
+    updateViz(2);
   });
   
   d3.select("#inlineRadio2").on("click", function () {
