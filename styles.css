@@ -139,3 +139,18 @@ div.keys {
 div.values {
   text-align: left;
 }
+
+.horizontalGrid {
+        stroke: lightgrey;
+        stroke-opacity: 0.5;
+        shape-rendering: crispEdges;
+      }
+      .line {
+        fill: none;
+        stroke: #383838;
+        stroke-width: 1px;
+      }
+      .overlay {
+        fill: none;
+        pointer-events: all;
+      }
