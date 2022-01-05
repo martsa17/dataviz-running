@@ -5,7 +5,7 @@ const margin = { top: 50, right: 30, bottom: 30, left: 60 },
 
 // Création du SVG
 const svg = d3
-  .select("#graph")
+  .select("#graphwindow")
   .append("svg")
   .attr("id", "svg")
   .attr("width", width + margin.left + margin.right + 50)
@@ -141,7 +141,7 @@ d3.csv("runningmoy.csv").then(function (data) {
     .attr("y2", (d) => y(d));
 
   function updateViz(w) {
-    d3.select("#graphwindow").remove();
+    d3.select("#graph").remove();
     addMovingAverage(data, x, y, w);
   }
 
