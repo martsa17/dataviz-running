@@ -145,7 +145,7 @@ d3.csv("runningmoy.csv").then(function (data) {
     addMovingAverage(data, x, y, w);
   }
 
-  d3.select("#inlineRadio1").on("click", function () {
+  /*d3.select("#inlineRadio1").on("click", function () {
     updateViz(2);
   });
   
@@ -155,6 +155,10 @@ d3.csv("runningmoy.csv").then(function (data) {
   
   d3.select("#inlineRadio3").on("click", function () {
     updateViz(60);
+  }); */
+  
+  d3.select("#slider").on("input", function () {
+    updateViz(+this.value);
   });
   
 });
