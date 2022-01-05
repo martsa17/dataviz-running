@@ -141,7 +141,7 @@ d3.csv("runningmoy.csv").then(function (data) {
     .attr("y2", (d) => y(d));
 
   function updateViz(w) {
-    d3.select("#graph").remove();
+    d3.select("#graphwindow").remove();
     addMovingAverage(data, x, y, w);
   }
 
