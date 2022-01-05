@@ -145,7 +145,19 @@ d3.csv("runningmoy.csv").then(function (data) {
     addMovingAverage(data, x, y, w);
   }
 
-  d3.select("#slider").on("input", function () {
-    updateViz(+this.value);
+  d3.select("#inlineRadio1").on("click", function () {
+    var w = d3.select('input[id="inlineRadio1"]:checked').property("value");
+    updateViz(w);
   });
+  
+  d3.select("#inlineRadio2").on("click", function () {
+    var w = d3.select('input[id="inlineRadio1"]:checked').property("value");
+    updateViz(w);
+  });
+  
+  d3.select("#inlineRadio3").on("click", function () {
+    var w = d3.select('input[id="inlineRadio1"]:checked').property("value");
+    updateViz(w);
+  });
+  
 });
