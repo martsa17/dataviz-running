@@ -89,12 +89,12 @@ div.viz {
 }
 
 #circle,
-#stats-course {
+#st-cr-wrapper {
   border-left: solid 3px #376996;
   border-right: dotted 3px #376996;
 }
 
-#stats-course,
+#st-cr-wrapper,
 #course-radios {
   border-bottom: solid 3px #376996;
 }
@@ -121,7 +121,7 @@ div.viz {
   border-top-right-radius: 10px;
 }
 
-#stats-course,
+#st-cr-wrapper,
 #course-radios {
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
