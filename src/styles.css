@@ -141,7 +141,7 @@ div.values {
 }
 
 .horizontalGrid {
-        stroke: lightgrey;
+        stroke: grey;
         stroke-opacity: 0.5;
         shape-rendering: crispEdges;
       }
