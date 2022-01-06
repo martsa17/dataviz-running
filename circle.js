@@ -18,7 +18,7 @@
         output.innerHTML = min_val;
         var output = document.getElementById("maxval");
         output.innerHTML = max_val;
-        d3.csv("run.csv").then(function (d) {
+        d3.csv("running_modif2.csv").then(function (d) {
           var inf = 0;
           var moy = 0;
           var sup = 0;
