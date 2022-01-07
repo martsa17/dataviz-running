@@ -61,26 +61,37 @@
         </div>
       </div>
       <div class="row top-buffer" id="overview">
-        <div class="col-6 viz" id="circle-wrapper">
-          <div class="row" id="circle">
-            Cercle
-          </div> 
-          <div class="row">
-            <input id="slider_min" type="range" value="0" min="6" max="30" step="2" />
-            <br />
-            <p>Vitesse minimale: <span id="minval"></span></p>
-            <input id="slider_max" type="range" value="0" min="6" max="30" step="2" />
-            <br />
-            <p>Vitesse maximale : <span id="maxval"></span></p>
-          </div>  
+        <div class="col-7 viz" id="circle-wrapper">
+          <div class="row" id="circle-1-2">
+            <div class="col-6" id="circle-1">??</div>
+            <div class="col-6" id="circle-2">??</div>
+          </div>
+          <div class="row" id="circle-3-4">
+            <div class="col-6" id="circle-3">??</div>
+            <div class="col-6" id="circle-4">??</div>
+          </div>
         </div>
-        <div class="col-6 viz" id="stats-circle">
+        <div class="col-5 viz" id="stats-circle">
           <div class="row" id="st-cr-title">
             <h2>LIEU CHOISI<h2>
           </div>
-          <div class="row" id="st-cr-infos">
-            <div class="col-6 keys" id="st_cr_names">Longueur du tracé :<br>Nb courses :<br>Période :<br>Vitesse moyenne :<br></div>
-            <div class="col-6 values" id="st_cr_stats">??m<br>??<br>?? - ??<br>?? km/h<br></div>
+          <div class="row" id="circle-length">
+            <div class="col-sm-8 keys" id="cl-name">Longueur du tracé :<br></div>
+            <div class="col-2 values" id="cl-val">??</div>
+            <div class="col-2 unit" id="cl-unit">m</div>
+          </div>
+          <div class="row" id="circle-number">
+            <div class="col-sm-8 keys" id="cn-name">Nombre de courses :</div>
+            <div class="col-4 values" id="cn-val">??</div>
+          </div>
+          <div class="row" id="circle-period">
+            <div class="col-sm-8 keys" id="cp-name">Période :</div>
+            <div class="col-4 values" id="cp-val">?? - ??</div>
+          </div>
+          <div class="row" id="circle-average">
+            <div class="col-sm-8 keys" id="ca-name">Vitesse moyenne :</div>
+            <div class="col-2 values" id="ca-val">??</div>
+            <div class="col-2 unit" id="ca-unit">km/h</div>
           </div>
         </div>
       </div>
@@ -90,9 +101,22 @@
               <div class="row" id="st-cr-title">
                 <h2>Course #??<h2>
               </div>
-              <div class="row" id="st-cr-infos">
-                <div class="col-7 keys" id="st_gr_names">Date :<br>Tps :<br>VM :<br>Rang :<br></div>
-                <div class="col-5 values" id="st_gr_stats">?-?-?<br>?:?:?<br>?? km/h<br>?<br></div>
+              <div class="row" id="course-date">
+                <div class="col-md-8 keys" id="cod-name">Date :<br></div>
+                <div class="col-4 values" id="cod-val">??</div>
+              </div>
+              <div class="row" id="course-time">
+                <div class="col-md-8 keys" id="cot-name">Temps :</div>
+                <div class="col-4 values" id="cot-val">??</div>
+              </div>
+              <div class="row" id="course-vm">
+                <div class="col-md-8 keys" id="cov-name">VM :</div>
+                <div class="col-2 values" id="cov-val">??</div>
+                <div class="col-2 unit" id="cov-unit">km/h</div>
+              </div>
+              <div class="row" id="course-rank">
+                <div class="col-md-8 keys" id="cor-name">Rang :</div>
+                <div class="col-4 values" id="cor-val">??</div>
               </div>
             </div>
         </div>
