@@ -9,7 +9,7 @@ Color palette pour le site :
 */
 
 body {
-  background-color: #829cbc;
+  background-color: #1f487e;
   font-family: open-sans;
 }
 
@@ -69,7 +69,7 @@ div.inner.names,
 }
 
 #pres {
-  border: solid #1f487e;
+  border: solid #829cbc;
   border-radius: 10px;
   border-width: 3px;
   background-color: #376996;
@@ -85,32 +85,32 @@ div.viz {
 
 #circle-wrapper,
 #stats-circle {
-  border-top: solid 3px #376996;
+  border-top: solid 3px #1f487e;
 }
 
 #circle-wrapper,
 #st-cr-wrapper {
-  border-left: solid 3px #376996;
-  border-right: dotted 3px #376996;
+  border-left: solid 3px #1f487e;
+  border-right: dotted 3px #1f487e;
 }
 
 #st-cr-wrapper,
 #course-radios {
-  border-bottom: solid 3px #376996;
+  border-bottom: solid 3px #1f487e;
 }
 
 #stats-circle,
 #course-tick,
 #course-graph,
 #course-radios {
-  border-right: solid #376996;
+  border-right: solid #1f487e;
   border-right-width: 3px;
 }
 
 #course-tick,
 #course-graph,
 #course-radios {
-  border-left: solid #376996 3px;
+  border-left: solid #1f487e 3px;
 }
 
 #circle-wrapper {
@@ -125,7 +125,7 @@ div.viz {
 #course-radios {
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
-  border-right: solid #376996 3px;
+  border-right: solid #1f487e 3px;
 }
 
 #st-cr-title {
