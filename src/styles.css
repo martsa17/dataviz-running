@@ -107,6 +107,14 @@ div.viz {
   border-right-width: 3px;
 }
 
+#overview {
+  border-bottom: solid 1px #1f487e;
+}
+
+#course {
+  border-top: solid 1px #1f487e;
+}
+
 #course-tick,
 #course-graph,
 #course-radios {
