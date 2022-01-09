@@ -32,6 +32,8 @@ d3.csv("Lyon.csv").then(function (data) {
     d.vit = parseFloat(d.vitesse);
     d.id = +d.identifiant;
   });
+  
+  console.log(data);
 
   var len = data.length;
 
@@ -73,7 +75,6 @@ d3.csv("Lyon.csv").then(function (data) {
     else return "#aaff00";
   }
 
-  console.log(color(2));
   const area = d3
     .area()
     .x((d) => x(d.dist))
