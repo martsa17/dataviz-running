@@ -85,40 +85,40 @@ div.viz {
 
 #circle-wrapper,
 #stats-circle {
-  border-top: solid 3px #1f487e;
+  border-top: solid 3px #829cbc;
 }
 
 #circle-wrapper,
 #st-cr-wrapper {
-  border-left: solid 3px #1f487e;
-  border-right: dotted 3px #1f487e;
+  border-left: solid 3px #829cbc;
+  border-right: dotted 3px #829cbc;
 }
 
 #st-cr-wrapper,
 #course-radios {
-  border-bottom: solid 3px #1f487e;
+  border-bottom: solid 3px #829cbc;
 }
 
 #stats-circle,
 #course-tick,
 #course-graph,
 #course-radios {
-  border-right: solid #1f487e;
+  border-right: solid #829cbc;
   border-right-width: 3px;
 }
 
 #overview {
-  border-bottom: solid 1px #1f487e;
+  border-bottom: solid 1px #829cbc;
 }
 
 #course {
-  border-top: solid 1px #1f487e;
+  border-top: solid 1px #829cbc;
 }
 
 #course-tick,
 #course-graph,
 #course-radios {
-  border-left: solid #1f487e 3px;
+  border-left: solid #829cbc 3px;
 }
 
 #circle-wrapper {
@@ -133,7 +133,7 @@ div.viz {
 #course-radios {
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
-  border-right: solid #1f487e 3px;
+  border-right: solid #829cbc 3px;
 }
 
 #st-cr-title {
