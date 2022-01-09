@@ -134,7 +134,7 @@ d3.csv("Lyon.csv").then(function (data) {
       });
   }
   for (let i = 0; i < nb_id; i++) {
-    addMovingAverage(course[i], x, y, 2, color(i + 1));
+    addMovingAverage(course[i], x, y, 20, color(i + 1));
   }
 
   // axe x
