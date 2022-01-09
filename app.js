@@ -43,7 +43,7 @@ d3.csv("Lyon.csv").then(function (data) {
 
   for (let i = 0; i < nb_id; i++) {
     course[i] = data.filter(function (d) {
-      return d.id == i + 1;
+      return d.id === i + 1;
     });
   }
 
@@ -59,19 +59,19 @@ d3.csv("Lyon.csv").then(function (data) {
   const z = d3.scaleLinear().range([height, 0]).domain([0, 700]);
 
   function color(i) {
-    if (i == 1) return "#ff0000";
-    if (i == 2) return "#ff0055";
-    if (i == 3) return "#ff00aa";
-    if (i == 4) return "#ff00ff";
-    if (i == 5) return "#aa00ff";
-    if (i == 6) return "#5500ff";
-    if (i == 7) return "#0055ff";
-    if (i == 8) return "#00aaff";
-    if (i == 9) return "#00ffff";
-    if (i == 10) return "#00ffaa";
-    if (i == 11) return "#00ff55";
-    if (i == 12) return "#00ff00";
-    if (i == 12) return "#55ff00";
+    if (i === 1) return "#ff0000";
+    if (i === 2) return "#ff0055";
+    if (i === 3) return "#ff00aa";
+    if (i === 4) return "#ff00ff";
+    if (i === 5) return "#aa00ff";
+    if (i === 6) return "#5500ff";
+    if (i === 7) return "#0055ff";
+    if (i === 8) return "#00aaff";
+    if (i === 9) return "#00ffff";
+    if (i === 10) return "#00ffaa";
+    if (i === 11) return "#00ff55";
+    if (i === 12) return "#00ff00";
+    if (i === 12) return "#55ff00";
     else return "#aaff00";
   }
 
