@@ -1,6 +1,6 @@
-      const width = 450,
-        height = 450,
-        margin = 40;
+      const width = 45,
+        height = 45,
+        margin = 4;
       radius = 10;
       min_val = 5;
       max_val = 5;
