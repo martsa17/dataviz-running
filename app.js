@@ -24,18 +24,30 @@ svg
   .style("font-size", "24px")
   .text("Evolution de la vitesse au cours du trajet");
 
-d3.csv("runningmoy.csv").then(function (data) {
+d3.csv("Lyon.csv").then(function (data) {
   data.forEach(function (d) {
-    d.date = +d.date / 3600;
-    d.alt = parseFloat(d.alt.replace(",", "."));
-    d.dist = parseFloat(d.dist.replace(",", "."));
-    d.vit = parseFloat(d.vit.replace(",", "."));
-    d.pente = parseFloat(d.pente.replace(",", "."));
+    d.duree = +d.duree / 3600;
+    d.alt = parseFloat(d.altitude);
+    d.dist = parseFloat(d.distance_cum) / 1000;
+    d.vit = parseFloat(d.vitesse);
+    d.id = +d.identifiant;
   });
+
+  var len = data.length;
+
+  var nb_id = data[len - 1].id;
+
+  var course = [];
+
+  for (let i = 0; i < nb_id; i++) {
+    course[i] = data.filter(function (d) {
+      return d.id == i + 1;
+    });
+  }
 
   const vit_moy = d3.mean(data, (d) => d.vit);
 
-  const y = d3.scaleLinear().range([height, 0]).domain([0, 30]);
+  const y = d3.scaleLinear().range([height, 0]).domain([5, 15]);
 
   const x = d3
     .scaleLinear()
@@ -44,6 +56,24 @@ d3.csv("runningmoy.csv").then(function (data) {
 
   const z = d3.scaleLinear().range([height, 0]).domain([0, 700]);
 
+  function color(i) {
+    if (i == 1) return "#ff0000";
+    if (i == 2) return "#ff0055";
+    if (i == 3) return "#ff00aa";
+    if (i == 4) return "#ff00ff";
+    if (i == 5) return "#aa00ff";
+    if (i == 6) return "#5500ff";
+    if (i == 7) return "#0055ff";
+    if (i == 8) return "#00aaff";
+    if (i == 9) return "#00ffff";
+    if (i == 10) return "#00ffaa";
+    if (i == 11) return "#00ff55";
+    if (i == 12) return "#00ff00";
+    if (i == 12) return "#55ff00";
+    else return "#aaff00";
+  }
+
+  console.log(color(2));
   const area = d3
     .area()
     .x((d) => x(d.dist))
@@ -52,7 +82,7 @@ d3.csv("runningmoy.csv").then(function (data) {
 
   var areaPath = svg
     .append("path")
-    .datum(data)
+    .datum(course[0])
     .style("fill", "#c6ecc6")
     .attr("d", area);
 
@@ -72,7 +102,7 @@ d3.csv("runningmoy.csv").then(function (data) {
     return result;
   }
 
-  function addMovingAverage(data, x, y, N) {
+  function addMovingAverage(data, x, y, N, color) {
     const line = d3
       .line()
       .x((d) => x(d.dist))
@@ -87,16 +117,25 @@ d3.csv("runningmoy.csv").then(function (data) {
       .datum(moveaverage)
       .attr("d", line)
       .style("fill", "none")
-      .style("stroke", "#ffab00")
-      .style("stroke-width", 2)
+      .style("stroke", color)
+      .attr("stroke-width", 1.5)
+      .attr("opacity", "0.65")
       .on("mouseover", function (d, i) {
-        d3.select(this).transition().duration("50").attr("opacity", ".60");
+        d3.select(this)
+
+          .attr("opacity", "1")
+          .attr("stroke-width", 2.5);
       })
       .on("mouseout", function (d, i) {
-        d3.select(this).transition().duration("50").attr("opacity", "1");
+        d3.select(this)
+
+          .attr("opacity", "0.65")
+          .attr("stroke-width", 1.5);
       });
   }
-  addMovingAverage(data, x, y, 2);
+  for (let i = 0; i < nb_id; i++) {
+    addMovingAverage(course[i], x, y, 2, color(i + 1));
+  }
 
   // axe x
   svg
@@ -147,24 +186,14 @@ d3.csv("runningmoy.csv").then(function (data) {
     .attr("y2", (d) => y(d));
 
   function updateViz(w) {
-    d3.select("#graph").remove();
-    addMovingAverage(data, x, y, w);
+    for (let i = 0; i < nb_id; i++) {
+      d3.select("#graph").remove();
+    }
+    for (let i = 0; i < nb_id; i++) {
+      addMovingAverage(course[i], x, y, w, color(i + 1));
+    }
   }
-
-  /*d3.select("#inlineRadio1").on("click", function () {
-    updateViz(2);
-  });
-  
-  d3.select("#inlineRadio2").on("click", function () {
-    updateViz(20);
-  });
-  
-  d3.select("#inlineRadio3").on("click", function () {
-    updateViz(60);
-  }); */
-  
   d3.select("#slider").on("input", function () {
     updateViz(+this.value);
   });
-  
 });
