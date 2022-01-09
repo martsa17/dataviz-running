@@ -6,7 +6,7 @@
       max_val = 5;
 
       const svg = d3
-        .select("#circle")
+        .select("#circle-1")
         .append("svg")
         .attr("width", width)
         .attr("height", height)
