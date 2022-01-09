@@ -18,16 +18,16 @@
         output.innerHTML = min_val;
         var output = document.getElementById("maxval");
         output.innerHTML = max_val;
-        d3.csv("running_modif2.csv").then(function (d) {
+        d3.csv("Lyon.csv").then(function (d) {
           var inf = 0;
           var moy = 0;
           var sup = 0;
 
           for (i = 0; i < d.length; i++) {
-            if (parseFloat(d[i].vit2) < min_val) {
+            if (parseFloat(d[i].vitesse) < min_val) {
               inf++;
             }
-            if (parseFloat(d[i].vit2) > max_val) {
+            if (parseFloat(d[i].vitesse) > max_val) {
               sup++;
             }
           }
