@@ -228,32 +228,104 @@ document.getElementById("cov-val").innerHTML = d3.mean(moveaverage, (d) => d.vit
 
 main("Lyon.csv",1,8);
 
+var precSel = "Lyon"
+var citySel = "Lyon"
+
 document.getElementById("circle-1").addEventListener("click", Lyonviz);
 document.getElementById("circle-2").addEventListener("click", Niceviz);
 document.getElementById("circle-3").addEventListener("click", Parisviz);
 document.getElementById("circle-4").addEventListener("click", Fjestadviz);
+document.getElementById("number-course").addEventListener("input", changedGraph);
+document.getElementById("starting-course").addEventListener("input", changedGraph);
 
 function Lyonviz() {
+  citySel = "Lyon"
   document.getElementById("circle-1").innerHTML = "Click";
 d3.select("svg").remove();
   svg = null;
-  main("Lyon.csv",1,8);
+  if (citySel == precSel) {
+    var nb = document.getElementById("number-course").value;
+    var st = document.getElementById("starting-course").value;
+    document.getElementById("starting-course").max = 9 - nb;
+    document.getElementById("number-course").max = 9 - st;
+    main("Lyon.csv",st,nb);
+  } else {
+    document.getElementById("number-course").max = 8;
+    document.getElementById("number-course").value = 8;
+    document.getElementById("starting-course").max = 1;
+    document.getElementById("starting-course").value = 1;
+    main("Lyon.csv",1,8);
+  }
+  precSel = citySel;
 }
+
 function Niceviz() {
+  citySel = "Nice"
   document.getElementById("circle-2").innerHTML = "Click";
  d3.select("svg").remove();
   svg = null;
-  main("Nice.csv",1,14);
+  if (citySel == precSel) {
+    var nb = document.getElementById("number-course").value;
+    var st = document.getElementById("starting-course").value;
+    document.getElementById("starting-course").max = 15 - nb;
+    document.getElementById("number-course").max = 15 - st;
+    main("Nice.csv",st,nb);
+  } else {
+    document.getElementById("number-course").max = 15;
+    document.getElementById("number-course").value = 15;
+    document.getElementById("starting-course").max = 1;
+    document.getElementById("starting-course").value = 1;
+    main("Nice.csv",1,14);
+  }
+  precSel = citySel;
 }
+
 function Parisviz() {
+  citySel = "Paris"
   document.getElementById("circle-3").innerHTML = "Click";
   d3.select("svg").remove();
   svg = null;
-  main("Paris.csv",1,11);
+  if (citySel == precSel) {
+    var nb = document.getElementById("number-course").value;
+    var st = document.getElementById("starting-course").value;
+    document.getElementById("starting-course").max = 12 - nb;
+    document.getElementById("number-course").max = 12 - st;
+    main("Paris.csv",st,nb);
+  } else {
+    document.getElementById("number-course").max = 11;
+    document.getElementById("number-course").value = 11;
+    document.getElementById("starting-course").max = 1;
+    document.getElementById("starting-course").value = 1;
+    main("Paris.csv",1,11);
+  }
+  precSel = citySel;
+  
 }
+
 function Fjestadviz() {
+  citySel = "Fjestad"
   document.getElementById("circle-4").innerHTML = "Click";
   d3.select("svg").remove();
   svg = null;
-  main("Fjestad.csv",1,8);
+  if (citySel == precSel) {
+    var nb = document.getElementById("number-course").value;
+    var st = document.getElementById("starting-course").value;
+    document.getElementById("starting-course").max = 9 - nb;
+    document.getElementById("number-course").max = 9 - st;
+    main("Fjestad.csv",st,nb);
+  } else {
+    document.getElementById("number-course").max = 8;
+    document.getElementById("number-course").value = 8;
+    document.getElementById("starting-course").max = 1;
+    document.getElementById("starting-course").value = 1;
+    main("Fjestad.csv",1,8);
+  }
+  precSel = citySel; 
+}
+
+function changedGraph() {
+  if (citySel = "Lyon"){Lyonviz();} 
+  if (citySel = "Nice"){Niceviz();} 
+  if (citySel = "Paris"){Parisviz();} 
+  if (citySel = "Fjestad"){Fjestadviz();} 
 }
