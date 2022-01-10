@@ -24,7 +24,8 @@ svg
   .style("font-size", "24px")
   .text("Evolution de la vitesse au cours du trajet");
 
-d3.csv("Lyon.csv").then(function (data) {
+function main(csv) {
+d3.csv(csv).then(function (data) {
   data.forEach(function (d) {
     d.duree = +d.duree / 3600;
     d.alt = parseFloat(d.altitude);
@@ -152,7 +153,7 @@ d3.csv("Lyon.csv").then(function (data) {
   // axe y
   svg
     .append("g")
-    .style("fill", "#ffab00")
+    .style("fill", "#5500ff")
     .call(d3.axisLeft(y))
     .append("text")
     .attr("fill", "#000")
@@ -198,3 +199,6 @@ d3.csv("Lyon.csv").then(function (data) {
     updateViz(+this.value);
   });
 });
+}
+
+main("Lyon.csv");
