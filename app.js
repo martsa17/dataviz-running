@@ -56,11 +56,11 @@ d3.csv(csv).then(function (data) {
       vit_moy[i] = d3.mean(course[i], (d) => d.vit);
     }
 
-  /*
+  
   document.getElementById("ca-val").innerHTML = d3.mean(vit_moy);
   document.getElementById("cn-val").innerHTML = nb_id;
   document.getElementById("cl-val").innerHTML = data[len-1].dist;
-  */
+  
                                                          
   const y = d3.scaleLinear().range([height, 0]).domain([5, 15]);
 
@@ -231,21 +231,21 @@ document.getElementById("circle-4").addEventListener("click", Fjestadviz);
 
 function Lyonviz() {
   document.getElementById("circle-1").innerHTML = "Click";
-  d3.select("#graphwindow").remove();
+
   main("Lyon.csv");
 }
 function Niceviz() {
   document.getElementById("circle-2").innerHTML = "Click";
-  d3.select("#graphwindow").remove();
+ 
   main("Nice.csv");
 }
 function Parisviz() {
   document.getElementById("circle-3").innerHTML = "Click";
-  d3.select("#graphwindow").remove();
+  
   main("Paris.csv");
 }
 function Fjestadviz() {
   document.getElementById("circle-4").innerHTML = "Click";
-  d3.select("#graphwindow").remove();
+  /*d3.select("#graphwindow").remove();*/
   main("Fjestad.csv");
 }
