@@ -220,17 +220,21 @@ document.getElementById("circle-4").addEventListener("click", Fjestadviz);
 
 function Lyonviz() {
   document.getElementById("circle-1").innerHTML = "Click";
+  d3.select("#graphwindow").remove();
   main("Lyon.csv");
 }
 function Niceviz() {
   document.getElementById("circle-2").innerHTML = "Click";
+  d3.select("#graphwindow").remove();
   main("Nice.csv");
 }
 function Parisviz() {
   document.getElementById("circle-3").innerHTML = "Click";
+  d3.select("#graphwindow").remove();
   main("Paris.csv");
 }
 function Fjestadviz() {
   document.getElementById("circle-4").innerHTML = "Click";
+  d3.select("#graphwindow").remove();
   main("Fjestad.csv");
 }
