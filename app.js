@@ -202,3 +202,25 @@ d3.csv(csv).then(function (data) {
 }
 
 main("Lyon.csv");
+
+document.getElementById("circle-1").addEventListener("click", Lyonviz);
+document.getElementById("circle-2").addEventListener("click", Niceviz);
+document.getElementById("circle-3").addEventListener("click", Parisviz);
+document.getElementById("circle-4").addEventListener("click", Fjestadviz);
+
+function Lyonviz() {
+  document.getElementById("circle-1").innerHTML = "Click";
+  main("Lyon.csv");
+}
+function Niceviz) {
+  document.getElementById("circle-2").innerHTML = "Click";
+  main("Nice.csv");
+}
+function Parisviz() {
+  document.getElementById("circle-3").innerHTML = "Click";
+  main("Paris.csv");
+}
+function Fjestadviz() {
+  document.getElementById("circle-4").innerHTML = "Click";
+  main("Fjestad.csv");
+}
