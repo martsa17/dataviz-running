@@ -76,7 +76,7 @@ const svg_c4 = d3
           const data_ready = pie(Object.entries(data));
 
           // Build the pie chart: Basically, each part of the pie is a path that we build using the arc function.
-          svg_c1
+          svg
             .selectAll("path")
             .data(data_ready)
             .join("path")
@@ -84,7 +84,7 @@ const svg_c4 = d3
               "d",
               d3.arc().innerRadius(40).outerRadius(32) // This is the size of the donut hole
             )
-            .attr("fill", (d) => color1(d.data[0]))
+            .attr("fill", (d) => color(d.data[0]))
             .attr("stroke", "black")
             .style("stroke-width", "2px")
             .attr("class", "donut");
