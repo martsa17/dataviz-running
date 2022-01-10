@@ -4,7 +4,7 @@ const margin2 = { top: 50, right: 30, bottom: 30, left: 60 },
   height = 400 - margin2.top - margin2.bottom;
 
 // Création du SVG
-const svg2 = d3
+const svg = d3
   .select("#graphwindow")
   .append("svg")
   .attr("id", "svg")
@@ -13,7 +13,7 @@ const svg2 = d3
   .append("g")
   .attr("transform", "translate(" + margin2.left + "," + margin2.top + ")");
 // Titre
-svg2
+svg
   .append("text")
   .attr("x", width / 2)
   .attr("y", 0 - margin2.top / 2)
@@ -120,7 +120,7 @@ d3.csv(csv).then(function (data) {
 
     let moveaverage = movingAverage(data, N); // Moyenne mobile sur 10 jours
 
-    svg2
+    svg
       .append("path")
       .attr("id", "graph")
       .datum(moveaverage)
@@ -152,7 +152,7 @@ document.getElementById("cov-val").innerHTML = moveaverage[0].vit;
   }
 
   // axe x
-  svg2
+  svg
     .append("g")
     .attr("transform", "translate(0," + height + ")")
     .call(d3.axisBottom(x))
@@ -163,7 +163,7 @@ document.getElementById("cov-val").innerHTML = moveaverage[0].vit;
     .text("Distance (en km)");
 
   // axe y
-  svg2
+  svg
     .append("g")
     .style("fill", "#5500ff")
     .call(d3.axisLeft(y))
@@ -176,7 +176,7 @@ document.getElementById("cov-val").innerHTML = moveaverage[0].vit;
     .text("Vitesse (en km/h)");
 
   // axe q
-  svg2
+  svg
     .append("g")
     .attr("transform", "translate(" + width + ", 0)")
     .style("fill", "#c6ecc6")
@@ -188,7 +188,7 @@ document.getElementById("cov-val").innerHTML = moveaverage[0].vit;
     .style("text-anchor", "end")
     .text("Altitude (en m)");
 
-  svg2
+  svg
     .selectAll("y axis")
     .data(y.ticks(10))
     .enter()
