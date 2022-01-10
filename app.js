@@ -1,22 +1,22 @@
 // Notre code viendra ici
-const margin = { top: 50, right: 30, bottom: 30, left: 60 },
+const margin2 = { top: 50, right: 30, bottom: 30, left: 60 },
   width = 800,
-  height = 400 - margin.top - margin.bottom;
+  height = 400 - margin2.top - margin2.bottom;
 
 // Création du SVG
-const svg = d3
+const svg2 = d3
   .select("#graphwindow")
   .append("svg")
   .attr("id", "svg")
-  .attr("width", width + margin.left + margin.right + 50)
-  .attr("height", height + margin.top + margin.bottom)
+  .attr("width", width + margin2.left + margin2.right + 50)
+  .attr("height", height + margin2.top + margin2.bottom)
   .append("g")
-  .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+  .attr("transform", "translate(" + margin2.left + "," + margin2.top + ")");
 // Titre
 svg
   .append("text")
   .attr("x", width / 2)
-  .attr("y", 0 - margin.top / 2)
+  .attr("y", 0 - margin2.top / 2)
   .attr("text-anchor", "middle")
   .style("fill", "#5a5a5a")
   .style("font-family", "Raleway")
