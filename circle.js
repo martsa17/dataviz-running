@@ -13,12 +13,39 @@ const width_c = 90,
         .append("g")
         .attr("transform", `translate(${width_c / 2},${height_c / 2})`);
 
+const svg_c2 = d3
+        .select("#circle-2")
+        .append("svg")
+        .attr("width", width_c)
+        .attr("height", height_c)
+        .append("g")
+        .attr("transform", `translate(${width_c / 2},${height_c / 2})`);
+const svg_c3 = d3
+        .select("#circle-3")
+        .append("svg")
+        .attr("width", width_c)
+        .attr("height", height_c)
+        .append("g")
+        .attr("transform", `translate(${width_c / 2},${height_c / 2})`);
+const svg_c4 = d3
+        .select("#circle-4")
+        .append("svg")
+        .attr("width", width_c)
+        .attr("height", height_c)
+        .append("g")
+        .attr("transform", `translate(${width_c / 2},${height_c / 2})`);
+
       function drawPie(min_val, max_val) {
         var output = document.getElementById("minval");
         output.innerHTML = min_val;
         var output = document.getElementById("maxval");
         output.innerHTML = max_val;
-        d3.csv("Lyon.csv").then(function (d) {
+        const color1 = d3.scaleOrdinal().range(["#F3D617","#EF9B0F","#E63201"]);
+      const color2 = d3.scaleOrdinal().range(["#D7D7D7","#848484","#4E4E4E"]);
+      const color3 = d3.scaleOrdinal().range(["#0AC4EC","#318CE7","#0F056B"]);
+      const color4 = d3.scaleOrdinal().range(["#C2F732","#16B84E","#00561B"]);
+        function drawCircle(csv,color,svg){
+        d3.csv(csv).then(function (d) {
           var inf = 0;
           var moy = 0;
           var sup = 0;
@@ -37,12 +64,11 @@ const width_c = 90,
           pourc_moy = 100 - pourc_inf - pourc_sup;
 
           data = { inf: pourc_inf, moy: pourc_moy, sup: pourc_sup };
-          //console.log(data);
+       
+       
+      
 
-      const color1 = d3.scaleOrdinal().range(["#F3D617","#EF9B0F","#E63201"]);
-      const color2 = d3.scaleOrdinal().range(["#D7D7D7","#848484","#4E4E4E"]);
-      const color3 = d3.scaleOrdinal().range(["#0AC4EC","#318CE7","#0F056B"]);
-      const color4 = d3.scaleOrdinal().range(["#C2F732","#16B84E","#00561B"]);
+      
 
           // Création de l'échelle de couleur
           const pie = d3.pie().value((d) => d[1]);
@@ -63,6 +89,11 @@ const width_c = 90,
             .style("stroke-width", "2px")
             .attr("class", "donut");
         });
+      }
+      drawCircle("Lyon.csv",color1,svg_c1);
+      drawCircle("Nice.csv",color2,svg_c2);
+      drawCircle("Paris.csv",color3,svg_c3);
+      drawCircle("Fjestad.csv",color4,svg_c4)
       }
       drawPie(min_val, max_val);
       d3.select("#slider_min").on("input", function () {
