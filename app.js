@@ -212,7 +212,7 @@ function Lyonviz() {
   document.getElementById("circle-1").innerHTML = "Click";
   main("Lyon.csv");
 }
-function Niceviz) {
+function Niceviz() {
   document.getElementById("circle-2").innerHTML = "Click";
   main("Nice.csv");
 }
