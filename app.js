@@ -27,7 +27,7 @@ svg
 const parseTime = d3.timeParse("%d/%m/%Y");
 const dateFormat = d3.timeFormat("%d/%m/%Y");
 
-function main(csv) {
+function main(csv, start, nbcourses) {
 d3.csv(csv).then(function (data) {
   data.forEach(function (d) {
     d.duree = +d.duree / 3600;
@@ -159,7 +159,7 @@ document.getElementById("cov-val").innerHTML = moveaverage[0].vit_moy;
           .attr("stroke-width", 1.5);
       });
   }
-  for (let i = 0; i < nb_id; i++) {
+  for (let i = start-1; i < nbcourses; i++) {
     addMovingAverage(course[i], x, y, 20, color(i + 1));
   }
 
@@ -225,7 +225,7 @@ document.getElementById("cov-val").innerHTML = moveaverage[0].vit_moy;
 });
 }
 
-main("Lyon.csv");
+main("Lyon.csv",1,8);
 
 document.getElementById("circle-1").addEventListener("click", Lyonviz);
 document.getElementById("circle-2").addEventListener("click", Niceviz);
@@ -235,20 +235,20 @@ document.getElementById("circle-4").addEventListener("click", Fjestadviz);
 function Lyonviz() {
   document.getElementById("circle-1").innerHTML = "Click";
 d3.select("#graphwindow").remove();
-  main("Lyon.csv");
+  main("Lyon.csv",1,8);
 }
 function Niceviz() {
   document.getElementById("circle-2").innerHTML = "Click";
  d3.select("#graphwindow").remove();
-  main("Nice.csv");
+  main("Nice.csv",1,14);
 }
 function Parisviz() {
   document.getElementById("circle-3").innerHTML = "Click";
   d3.select("#graphwindow").remove();
-  main("Paris.csv");
+  main("Paris.csv",1,12);
 }
 function Fjestadviz() {
   document.getElementById("circle-4").innerHTML = "Click";
   d3.select("#graphwindow").remove();
-  main("Fjestad.csv");
+  main("Fjestad.csv",1,8);
 }
