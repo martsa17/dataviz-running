@@ -138,6 +138,7 @@ document.getElementById("course_id").innerHTML = "Course #" + moveaverage[0].id;
 document.getElementById("cod-val").innerHTML = moveaverage[0].date;
 document.getElementById("cot-val").innerHTML = moveaverage[0].duree;
 document.getElementById("cov-val").innerHTML = moveaverage[0].vit;
+      document.getElementById("stats-course").background-color = color[moveaverage[0].id];
       })
       .on("mouseout", function (d, i) {
         d3.select(this)
