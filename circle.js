@@ -5,7 +5,7 @@
       min_val = 5;
       max_val = 5;
 
-      const svg = d3
+      const svg_c1 = d3
         .select("#circle-1")
         .append("svg")
         .attr("width", width_c)
@@ -47,7 +47,7 @@
           const data_ready = pie(Object.entries(data));
 
           // Build the pie chart: Basically, each part of the pie is a path that we build using the arc function.
-          svg
+          svg_c1
             .selectAll("path")
             .data(data_ready)
             .join("path")
