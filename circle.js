@@ -56,7 +56,7 @@
             .join("path")
             .attr(
               "d",
-              d3.arc().innerRadius(200).outerRadius(160) // This is the size of the donut hole
+              d3.arc().innerRadius(20).outerRadius(16) // This is the size of the donut hole
             )
             .attr("fill", (d) => color1(d.data[0]))
             .attr("stroke", "black")
