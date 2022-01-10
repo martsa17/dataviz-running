@@ -1,5 +1,5 @@
 const width_c = 45,
-        height_c = 45,
+        height_c = 90,
         margin_c = 4;
       radius = 10;
       min_val = 5;
