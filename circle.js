@@ -39,10 +39,10 @@
           data = { inf: pourc_inf, moy: pourc_moy, sup: pourc_sup };
           //console.log(data);
 
-      const color1 = d3.scaleOrdinal().range([#F3D617,#EF9B0F,#E63201]);
-      const color2 = d3.scaleOrdinal().range([#D7D7D7,#848484,#4E4E4E]);
-      const color3 = d3.scaleOrdinal().range([#0AC4EC,#318CE7,#0F056B]);
-      const color4 = d3.scaleOrdinal().range([#C2F732,#16B84E,#00561B]);
+      const color1 = d3.scaleOrdinal().range(["#F3D617","#EF9B0F","#E63201"]);
+      const color2 = d3.scaleOrdinal().range(["#D7D7D7","#848484","#4E4E4E"]);
+      const color3 = d3.scaleOrdinal().range(["#0AC4EC","#318CE7","#0F056B"]);
+      const color4 = d3.scaleOrdinal().range(["#C2F732","#16B84E","#00561B"]);
 
           // Création de l'échelle de couleur
           const pie = d3.pie().value((d) => d[1]);
