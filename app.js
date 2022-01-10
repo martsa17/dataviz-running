@@ -50,7 +50,11 @@ d3.csv(csv).then(function (data) {
     });
   }
 
-  const vit_moy = d3.mean(data, (d) => d.vit);
+   var vit_moy = [];
+
+    for (let i = 0; i < nb_id; i++) {
+      vit_moy[i] = d3.mean(course[i], (d) => d.vit);
+    }
 
   /*
   document.getElementById("ca-val").innerHTML = d3.mean(vit_moy);
@@ -110,6 +114,7 @@ d3.csv(csv).then(function (data) {
                    vit: val.toFixed(2),
                    date: array[i].date,
                    duree: array[array.length - count].duree.toFixed(2) });
+                   vit_moy: vit_moy[i]
     }
 
     return result;
@@ -141,7 +146,7 @@ d3.csv(csv).then(function (data) {
 document.getElementById("course_id").innerHTML = moveaverage[0].id;
 document.getElementById("cod-val").innerHTML = moveaverage[0].date;
 document.getElementById("cot-val").innerHTML = moveaverage[0].duree;
-document.getElementById("cov-val").innerHTML = moveaverage[0].vit;
+document.getElementById("cov-val").innerHTML = moveaverage[0].vit_moy;
       document.getElementById("stats-course").backgroundColor = color[moveaverage[0].id + 1];
       })
       .on("mouseout", function (d, i) {
