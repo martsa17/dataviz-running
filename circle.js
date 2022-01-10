@@ -1,6 +1,6 @@
-      const width = 45,
-        height = 45,
-        margin = 4;
+      const width_c = 45,
+        height_c = 45,
+        margin_c = 4;
       radius = 10;
       min_val = 5;
       max_val = 5;
@@ -8,10 +8,10 @@
       const svg = d3
         .select("#circle-1")
         .append("svg")
-        .attr("width", width)
-        .attr("height", height)
+        .attr("width", width_c)
+        .attr("height", height_c)
         .append("g")
-        .attr("transform", `translate(${width / 2},${height / 2})`);
+        .attr("transform", `translate(${width_c / 2},${height_c / 2})`);
 
       function drawPie(min_val, max_val) {
         var output = document.getElementById("minval");
