@@ -101,9 +101,9 @@ d3.csv(csv).then(function (data) {
     ) {
       val = d3.mean(array.slice(i - count / 2, i + count / 2), (d) => d.vit);
       result.push({dist: array[i].dist,
-                   vit: val,
+                   vit: val.toFixed(2),
                    date: array[i].date,
-                   duree: array[array.length - count].duree });
+                   duree: array[array.length - count].duree.toFixed(2) });
     }
 
     return result;
