@@ -37,7 +37,7 @@ d3.csv(csv).then(function (data) {
     d.id = +d.identifiant;
     d.date = parseTime(d.date);
   });
-
+  
   var len = data.length;
 
   var nb_id = data[len - 1].id;
@@ -52,6 +52,12 @@ d3.csv(csv).then(function (data) {
 
   const vit_moy = d3.mean(data, (d) => d.vit);
 
+  
+  document.getElementById("ca-val").innerHTML = d3.mean(vit_moy);
+  document.getElementById("cn-val").innerHTML = nb_id;
+  document.getElementById("cl-val").innerHTML = data[len-1].dist;
+  
+                                                         
   const y = d3.scaleLinear().range([height, 0]).domain([5, 15]);
 
   const x = d3
@@ -132,7 +138,7 @@ d3.csv(csv).then(function (data) {
           .attr("opacity", "1")
           .attr("stroke-width", 2.5);
       
-document.getElementById("course_id").innerHTML = "Course #" + moveaverage[0].id;
+document.getElementById("course_id").innerHTML = moveaverage[0].id;
 document.getElementById("cod-val").innerHTML = moveaverage[0].date;
 document.getElementById("cot-val").innerHTML = moveaverage[0].duree;
 document.getElementById("cov-val").innerHTML = moveaverage[0].vit;
