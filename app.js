@@ -236,20 +236,24 @@ document.getElementById("circle-4").addEventListener("click", Fjestadviz);
 function Lyonviz() {
   document.getElementById("circle-1").innerHTML = "Click";
 d3.select("svg").remove();
+  svg = null;
   main("Lyon.csv",1,8);
 }
 function Niceviz() {
   document.getElementById("circle-2").innerHTML = "Click";
  d3.select("svg").remove();
+  svg = null;
   main("Nice.csv",1,14);
 }
 function Parisviz() {
   document.getElementById("circle-3").innerHTML = "Click";
   d3.select("svg").remove();
+  svg = null;
   main("Paris.csv",1,11);
 }
 function Fjestadviz() {
   document.getElementById("circle-4").innerHTML = "Click";
   d3.select("svg").remove();
+  svg = null;
   main("Fjestad.csv",1,8);
 }
