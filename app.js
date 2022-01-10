@@ -5,7 +5,7 @@ const margin2 = { top: 50, right: 30, bottom: 30, left: 60 },
 
 function main(csv, start, nbcourses) {
 // Création du SVG
-const svg = d3
+var svg = d3
   .select("#graphwindow")
   .append("svg")
   .attr("id", "svg")
