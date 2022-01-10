@@ -1,4 +1,3 @@
-console.log("coucou");      
 const width_c = 45,
         height_c = 45,
         margin_c = 4;
@@ -57,7 +56,7 @@ const width_c = 45,
             .join("path")
             .attr(
               "d",
-              d3.arc().innerRadius(20).outerRadius(16) // This is the size of the donut hole
+              d3.arc().innerRadius(40).outerRadius(32) // This is the size of the donut hole
             )
             .attr("fill", (d) => color1(d.data[0]))
             .attr("stroke", "black")
