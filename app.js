@@ -115,9 +115,9 @@ d3.csv(csv).then(function (data) {
       result.push({dist: array[i].dist,
                    vit: val.toFixed(2),
                    date: array[i].date,
-                   duree: array[array.length - count].duree.toFixed(2) }),
-
+                   duree: array[array.length - count].duree.toFixed(2),
                    vit_moy: vit_moy[i];
+                   })
     }
 
     return result;
