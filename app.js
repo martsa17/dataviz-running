@@ -3,6 +3,7 @@ const margin2 = { top: 50, right: 30, bottom: 30, left: 60 },
   width = 800,
   height = 400 - margin2.top - margin2.bottom;
 
+function main(csv, start, nbcourses) {
 // Création du SVG
 const svg = d3
   .select("#graphwindow")
@@ -27,7 +28,7 @@ svg
 const parseTime = d3.timeParse("%d/%m/%Y");
 const dateFormat = d3.timeFormat("%d/%m/%Y");
 
-function main(csv, start, nbcourses) {
+
 d3.csv(csv).then(function (data) {
   data.forEach(function (d) {
     d.duree = +d.duree / 3600;
@@ -245,7 +246,7 @@ function Niceviz() {
 function Parisviz() {
   document.getElementById("circle-3").innerHTML = "Click";
   d3.select("#graphwindow").remove();
-  main("Paris.csv",1,12);
+  main("Paris.csv",1,11);
 }
 function Fjestadviz() {
   document.getElementById("circle-4").innerHTML = "Click";
