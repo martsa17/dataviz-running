@@ -52,11 +52,11 @@ d3.csv(csv).then(function (data) {
 
   const vit_moy = d3.mean(data, (d) => d.vit);
 
-  
+  /*
   document.getElementById("ca-val").innerHTML = d3.mean(vit_moy);
   document.getElementById("cn-val").innerHTML = nb_id;
   document.getElementById("cl-val").innerHTML = data[len-1].dist;
-  
+  */
                                                          
   const y = d3.scaleLinear().range([height, 0]).domain([5, 15]);
 
