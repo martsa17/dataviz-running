@@ -1,4 +1,5 @@
-      const width_c = 45,
+console.log("coucou");      
+const width_c = 45,
         height_c = 45,
         margin_c = 4;
       radius = 10;
