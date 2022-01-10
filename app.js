@@ -37,8 +37,6 @@ d3.csv(csv).then(function (data) {
     d.id = +d.identifiant;
     d.date = parseTime(d.date);
   });
-  
-  console.log(data);
 
   var len = data.length;
 
