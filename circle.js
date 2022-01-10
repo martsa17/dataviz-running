@@ -1,4 +1,4 @@
-const width_c = 45,
+const width_c = 90,
         height_c = 90,
         margin_c = 4;
       radius = 10;
