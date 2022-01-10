@@ -134,10 +134,10 @@ d3.csv(csv).then(function (data) {
           .attr("opacity", "1")
           .attr("stroke-width", 2.5);
       
-      document.getElementById("course_id").innerHTML = "Course #" + moveaverage[O].id;
-document.getElementById("cod-val").innerHTML = moveaverage[O].date;
-document.getElementById("cot-val").innerHTML = moveaverage[O].duree;
-document.getElementById("cov-val").innerHTML = moveaverage[O].vit;
+document.getElementById("course_id").innerHTML = "Course #" + moveaverage[0].id;
+document.getElementById("cod-val").innerHTML = moveaverage[0].date;
+document.getElementById("cot-val").innerHTML = moveaverage[0].duree;
+document.getElementById("cov-val").innerHTML = moveaverage[0].vit;
       })
       .on("mouseout", function (d, i) {
         d3.select(this)
@@ -221,17 +221,21 @@ document.getElementById("circle-4").addEventListener("click", Fjestadviz);
 
 function Lyonviz() {
   document.getElementById("circle-1").innerHTML = "Click";
+  d3.select("#graphwindow").remove()
   main("Lyon.csv");
 }
 function Niceviz() {
   document.getElementById("circle-2").innerHTML = "Click";
+  d3.select("#graphwindow").remove()
   main("Nice.csv");
 }
 function Parisviz() {
   document.getElementById("circle-3").innerHTML = "Click";
+  d3.select("#graphwindow").remove()
   main("Paris.csv");
 }
 function Fjestadviz() {
   document.getElementById("circle-4").innerHTML = "Click";
+  d3.select("#graphwindow").remove()
   main("Fjestad.csv");
 }
