@@ -9,7 +9,8 @@ Color palette pour le site :
 */
 
 body {
-  background-color: #1f487e;
+  /*background-color: #1f487e;*/
+  background-image: url("https://images.pexels.com/photos/235922/pexels-photo-235922.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260")
   font-family: open-sans;
 }
 
