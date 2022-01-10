@@ -24,6 +24,9 @@ svg
   .style("font-size", "24px")
   .text("Evolution de la vitesse au cours du trajet");
 
+const parseTime = d3.timeParse("%d/%m/%Y");
+const dateFormat = d3.timeFormat("%d/%m/%Y");
+
 function main(csv) {
 d3.csv(csv).then(function (data) {
   data.forEach(function (d) {
@@ -32,6 +35,7 @@ d3.csv(csv).then(function (data) {
     d.dist = parseFloat(d.distance_cum) / 1000;
     d.vit = parseFloat(d.vitesse);
     d.id = +d.identifiant;
+    d.date = parseTime(d.date);
   });
   
   console.log(data);
@@ -98,7 +102,10 @@ d3.csv(csv).then(function (data) {
       i++
     ) {
       val = d3.mean(array.slice(i - count / 2, i + count / 2), (d) => d.vit);
-      result.push({ dist: array[i].dist, vit: val });
+      result.push({dist: array[i].dist,
+                   vit: val,
+                   date: array[i].date,
+                   duree: array[array.length - count].duree });
     }
 
     return result;
@@ -124,9 +131,13 @@ d3.csv(csv).then(function (data) {
       .attr("opacity", "0.65")
       .on("mouseover", function (d, i) {
         d3.select(this)
-
           .attr("opacity", "1")
           .attr("stroke-width", 2.5);
+      
+      document.getElementById("course_id").innerHTML = "Course #" + moveaverage[O].id;
+document.getElementById("cod-val").innerHTML = moveaverage[O].date;
+document.getElementById("cot-val").innerHTML = moveaverage[O].duree;
+document.getElementById("cov-val").innerHTML = moveaverage[O].vit;
       })
       .on("mouseout", function (d, i) {
         d3.select(this)
