@@ -60,9 +60,9 @@ d3.csv(csv).then(function (data) {
     }
 
   
-  document.getElementById("ca-val").innerHTML = d3.mean(vit_moy);
+  document.getElementById("ca-val").innerHTML = d3.mean(vit_moy).toFixed(2);
   document.getElementById("cn-val").innerHTML = nb_id;
-  document.getElementById("cl-val").innerHTML = data[len-1].dist;
+  document.getElementById("cl-val").innerHTML = data[len-1].dist.toFixed(2);
   
                                                          
   const y = d3.scaleLinear().range([height, 0]).domain([5, 15]);
@@ -116,8 +116,7 @@ d3.csv(csv).then(function (data) {
       result.push({dist: array[i].dist,
                    vit: val.toFixed(2),
                    date: array[i].date,
-                   duree: array[array.length - count].duree.toFixed(2),
-                   vit_moy: vit_moy[i]
+                   duree: array[array.length - count].duree.toFixed(2)
                    })
     }
 
@@ -150,7 +149,7 @@ d3.csv(csv).then(function (data) {
 document.getElementById("course_id").innerHTML = moveaverage[0].id;
 document.getElementById("cod-val").innerHTML = moveaverage[0].date;
 document.getElementById("cot-val").innerHTML = moveaverage[0].duree;
-document.getElementById("cov-val").innerHTML = moveaverage[0].vit_moy;
+document.getElementById("cov-val").innerHTML = d3.mean(moveaverage, (d) => d.vit).toFixed(2);
       document.getElementById("stats-course").backgroundColor = color[moveaverage[0].id + 1];
       })
       .on("mouseout", function (d, i) {
